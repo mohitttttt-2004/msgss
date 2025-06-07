@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mohit Singh .G. Solanki</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: white;
+    }
+
+    .glass {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 1rem;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .hover-glow:hover {
+      box-shadow: 0 0 15px #00bfff;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .hero-bg {
+      background: url('photo1.jpeg') no-repeat center center;
+      background-size: cover;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.8s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav class="flex justify-between items-center p-6 bg-black bg-opacity-50 fixed w-full z-10 backdrop-blur-md">
+    <h1 class="text-2xl font-bold text-blue-400"style="font-size: 55px;">msgss</h1>
+    <ul class="flex space-x-6 text-white">
+      <li><a href="#home" class="hover:text-blue-400">Home</a></li>
+      <li><a href="#about" class="hover:text-blue-400">About</a></li>
+      <li><a href="#projects" class="hover:text-blue-400">Projects</a></li>
+      <li><a href="#contact" class="hover:text-blue-400">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero-bg h-screen flex flex-col justify-center items-center text-center px-4">
+    <div class="bg-black bg-opacity-60 p-6 rounded-xl">
+      <h2 class="text-4xl sm:text-6xl font-extrabold text-blue-400">Hello, I'm msgss</h2>
+      <p class="text-lg sm:text-2xl mt-4 text-gray-300">Web Developer & Designer</p>
+      <div class="mt-6 space-x-4">
+        <a href="#" download class="bg-blue-400 text-black px-6 py-3 rounded hover:scale-105 transform transition inline-block">Download Resume</a>
+        <a href="#about" class="bg-transparent border border-blue-400 text-blue-400 px-6 py-3 rounded hover:bg-blue-400 hover:text-black transition inline-block">Learn More</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="py-20 px-6 reveal" style="background-color: #0f0f0f;">
+    <div class="max-w-4xl mx-auto glass p-10">
+      <h3 class="text-3xl text-blue-400 font-bold mb-4">About Me</h3>
+      <p class="text-gray-300">I'm a passionate web developer with experience in HTML, CSS, JavaScript, and modern frameworks. I love creating interactive and visually appealing user interfaces.</p>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="py-20 px-6 reveal" style="background-color: #0f0f0f;">
+    <div class="max-w-6xl mx-auto">
+      <h3 class="text-3xl text-blue-400 font-bold mb-10 text-center">Projects</h3>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="glass p-6 hover-glow">
+          <h4 class="text-xl font-semibold text-blue-300">Project One</h4>
+          <p class="text-gray-400 mt-2">A beautiful responsive website using Tailwind CSS.</p>
+        </div>
+        <div class="glass p-6 hover-glow">
+          <h4 class="text-xl font-semibold text-blue-300">Project Two</h4>
+          <p class="text-gray-400 mt-2">An interactive JavaScript application with animations.</p>
+        </div>
+        <div class="glass p-6 hover-glow">
+          <h4 class="text-xl font-semibold text-blue-300">Project Three</h4>
+          <p class="text-gray-400 mt-2">A sleek portfolio template with modern design.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-20 px-6 reveal" style="background-color: #0f0f0f;">
+    <div class="max-w-4xl mx-auto glass p-10">
+      <h3 class="text-3xl text-blue-400 font-bold mb-4">Contact Me</h3>
+      <form class="space-y-4">
+        <input type="text" placeholder="Your Name" class="w-full p-3 rounded bg-black text-white border border-blue-400">
+        <input type="email" placeholder="Your Email" class="w-full p-3 rounded bg-black text-white border border-blue-400">
+        <textarea placeholder="Your Message" class="w-full p-3 rounded bg-black text-white border border-blue-400"></textarea>
+        <button type="submit" class="bg-blue-400 text-black px-6 py-3 rounded hover:scale-105 transform transition">Send</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="text-center py-6 text-gray-500" style="background-color: #0f0f0f;">
+    &copy; 2025 msgss | Built with 💙 and Tailwind CSS
+  </footer>
+
+  <!-- Reveal on scroll script -->
+  <script>
+    const reveals = document.querySelectorAll('.reveal');
+
+    function revealOnScroll() {
+      for (let i = 0; i < reveals.length; i++) {
+        const windowHeight = window.innerHeight;
+        const elementTop = reveals[i].getBoundingClientRect().top;
+        const elementVisible = 100;
+
+        if (elementTop < windowHeight - elementVisible) {
+          reveals[i].classList.add("visible");
+        }
+      }
+    }
+
+    window.addEventListener("scroll", revealOnScroll);
+    window.addEventListener("load", revealOnScroll);
+  </script>
+</body>
+
+</html>
