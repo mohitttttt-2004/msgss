@@ -2,10 +2,10 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mohit Singh .G. Solanki</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
   <style>
     body {
       margin: 0;
@@ -45,20 +45,34 @@
 
 <body>
   <!-- Navigation -->
-  <nav class="flex justify-between items-center p-6 bg-black bg-opacity-50 fixed w-full z-10 backdrop-blur-md">
-    <h1 class="text-2xl font-bold text-blue-400"style="font-size: 55px;">msgss</h1>
-    <ul class="flex space-x-6 text-white">
-      <li><a href="#home" class="hover:text-blue-400">Home</a></li>
-      <li><a href="#about" class="hover:text-blue-400">About</a></li>
-      <li><a href="#projects" class="hover:text-blue-400">Projects</a></li>
-      <li><a href="#contact" class="hover:text-blue-400">Contact</a></li>
+  <nav class="bg-black bg-opacity-50 fixed w-full z-10 backdrop-blur-md">
+    <div class="flex justify-between items-center px-6 py-4">
+      <h1 class="text-2xl font-bold text-blue-400" style="font-size: 45px;">MsgsS</h1>
+      <!-- Hamburger Button -->
+      <button id="menu-toggle" class="text-blue-400 sm:hidden text-3xl focus:outline-none">
+        &#9776;
+      </button>
+      <!-- Desktop Menu -->
+      <ul class="hidden sm:flex space-x-6 text-white">
+        <li><a href="#home" class="hover:text-blue-400">Home</a></li>
+        <li><a href="#about" class="hover:text-blue-400">About</a></li>
+        <li><a href="#projects" class="hover:text-blue-400">Projects</a></li>
+        <li><a href="#contact" class="hover:text-blue-400">Contact</a></li>
+      </ul>
+    </div>
+    <!-- Mobile Menu -->
+    <ul id="mobile-menu" class="hidden sm:hidden flex-col text-white text-center space-y-4 pb-4">
+      <li><a href="#home" class="block hover:text-blue-400">Home</a></li>
+      <li><a href="#about" class="block hover:text-blue-400">About</a></li>
+      <li><a href="#projects" class="block hover:text-blue-400">Projects</a></li>
+      <li><a href="#contact" class="block hover:text-blue-400">Contact</a></li>
     </ul>
   </nav>
 
   <!-- Hero Section -->
   <section id="home" class="hero-bg h-screen flex flex-col justify-center items-center text-center px-4">
     <div class="bg-black bg-opacity-60 p-6 rounded-xl">
-      <h2 class="text-4xl sm:text-6xl font-extrabold text-blue-400">Hello, I'm msgss</h2>
+      <h2 class="text-4xl sm:text-6xl font-extrabold text-blue-400">Hello, I'm MsgsS</h2>
       <p class="text-lg sm:text-2xl mt-4 text-gray-300">Web Developer & Designer</p>
       <div class="mt-6 space-x-4">
         <a href="#" download class="bg-blue-400 text-black px-6 py-3 rounded hover:scale-105 transform transition inline-block">Download Resume</a>
@@ -111,27 +125,33 @@
 
   <!-- Footer -->
   <footer class="text-center py-6 text-gray-500" style="background-color: #0f0f0f;">
-    &copy; 2025 msgss | Built with 💙 and Tailwind CSS
+    &copy; 2025 MsgsS | This Beauty consider from WEB Tools.
   </footer>
 
   <!-- Reveal on scroll script -->
   <script>
     const reveals = document.querySelectorAll('.reveal');
-
     function revealOnScroll() {
       for (let i = 0; i < reveals.length; i++) {
         const windowHeight = window.innerHeight;
         const elementTop = reveals[i].getBoundingClientRect().top;
         const elementVisible = 100;
-
         if (elementTop < windowHeight - elementVisible) {
           reveals[i].classList.add("visible");
         }
       }
     }
-
     window.addEventListener("scroll", revealOnScroll);
     window.addEventListener("load", revealOnScroll);
+  </script>
+
+  <!-- Menu toggle script -->
+  <script>
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    menuToggle.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
   </script>
 </body>
 
